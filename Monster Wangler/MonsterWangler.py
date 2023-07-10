@@ -1,4 +1,4 @@
-import pygame, random, os , sys
+import pygame, random 
 pygame.init()
 
 #display
@@ -13,13 +13,6 @@ pygame.display.set_caption("Monster Wangler")
 #fps and clock
 clock = pygame.time.Clock()
 FPS = 60
-def resource_path(relative_path):
-    try:
-        base_path = sys._MEIPASS
-    except Exception:
-        base_path = os.path.abspath(".")
-
-        return os.path.join(base_path,relative_path)
 
 #define class
 class Game():
@@ -193,7 +186,7 @@ class Game():
 
         #choose a new target monster
         self.choose_new_target()
-
+        
         self.next_level_sound.play()
     
         
@@ -256,8 +249,15 @@ class Game():
         self.round = 0
         self.player.warps = 2
         self.round_time = 0 
-
         self.player.reset()
+        
+
+        self.start_new_round()
+       
+        
+
+
+
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
